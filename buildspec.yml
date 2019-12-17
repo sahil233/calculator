@@ -1,14 +1,13 @@
+version: 0.2
 image: node:4.2.2
-
+run-as: root
+            
+phases:
+  install:
+    run-as: root
+    commands:
+      - npm install -g node-sass@4.5.0 --unsafe-perm=true --allow-root
+      - npm start
 cache:
   paths:
-  - node_modules/
-
-stages:
-  - test
-
-test_async:
-  stage: test
-  script:
-   - npm install -g node-sass@4.5.0 --unsafe-perm=true --allow-root
-   - npm start
+    - node_modules/
